@@ -1,0 +1,33 @@
+# Dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+
+# Next.js build output
+/.next/
+/out/
+/build
+
+# Vercel local config
+.vercel
+
+# TypeScript / Next generated
+*.tsbuildinfo
+next-env.d.ts
+
+# Environment files
+.env
+.env*.local
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+
+# Local design export reference (excluded from deploy repo)
+/stitch_titanium_glass_bento_portfolio/

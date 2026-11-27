@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #f8f9ff;
+    color: #0b1c30;
+  }
+
+  body {
+    overscroll-behavior: none;
+    background-color: #f8f9ff;
+    color: #0b1c30;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Titanium Glass Editorial Utility Layers */
+@layer components {
+  .editorial-glass {
+    @apply bg-surface-container-lowest/80 backdrop-blur-xl border border-outline-variant/40 shadow-glass;
+  }
+
+  .editorial-card-hover {
+    @apply transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.015] hover:shadow-glass-lg;
+  }
+
+  .blueprint-canvas {
+    background-color: #ffffff;
+    background-image:
+      linear-gradient(to right, rgba(203, 219, 245, 0.45) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(203, 219, 245, 0.45) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+}
+
+@keyframes spinCW {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinCCW {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes slowOrbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-slow-orbit {
+  animation: slowOrbit 24s linear infinite;
+}
+
+/* Print Styles for Resume & Technical Report PDF Export */
+@media print {
+  @page {
+    size: A4;
+    margin: 14mm;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #0b1c30 !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only-sheet {
+    position: static !important;
+    inset: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: #ffffff !important;
+  }
+}
