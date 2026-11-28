@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { useSiteUI } from '@/components/SiteUIProvider';
 import { IO_HANDSHAKE_DATA, LUA_SCRIPT_ARCHIVE } from '@/data/roboticsData';
+export { default as RoboticsMissionLab } from '@/components/robotics/RoboticsMissionLab';
 
 type RobotState = 'IDLE' | 'BUSY' | 'DONE' | 'ACK_DONE' | 'EMG_ALARM';
 

@@ -5,6 +5,7 @@ import {
   Activity,
   BookOpen,
   Bot,
+  Compass,
   Cpu,
   Database,
   FileCode2,
@@ -26,6 +27,7 @@ import {
 import {
   RoboticsHandshakeTab,
   RoboticsLuaTab,
+  RoboticsMissionLab,
 } from '@/components/robotics/RoboticsLabTabs';
 import {
   RoboticsCliTab,
@@ -37,7 +39,7 @@ import {
 } from '@/components/robotics/RoboticsFieldLogTabs';
 import { ROBOTICS_VISUAL_GUIDE_PDF } from '@/data/roboticsData';
 
-type LabSubTab = 'handshake' | 'lua';
+type LabSubTab = 'mission-lab' | 'handshake' | 'lua';
 type RefSubTab = 'concepts' | 'cli';
 type FieldSubTab = 'teaching' | 'rosbag';
 
@@ -45,11 +47,11 @@ const ROBOTICS_PILLARS: [PillarCardMeta, PillarCardMeta, PillarCardMeta] = [
   {
     id: 'lab',
     badge: 'PILLAR 01 · LAB',
-    countLabel: '2 Interactive Labs',
-    title: 'Lab · 핸드셰이크 & Lua 아카이브',
+    countLabel: '3 Interactive Labs',
+    title: 'Lab · 2D 미션 랩 · 핸드셰이크 · Lua',
     description:
-      'PLC↔로봇 7신호 실시간 I/O 핸드셰이크 시뮬레이터 & 브릴스 ::MAIN_LOOP:: Lua 스크립트 뷰어',
-    tags: ['I/O 핸드셰이크', '브릴스 Lua'],
+      '2D 협동로봇팔·AMR 미션 시뮬레이터, PLC↔로봇 7신호 실시간 I/O 핸드셰이크 & 브릴스 Lua 아카이브',
+    tags: ['2D 미션 랩', 'I/O 핸드셰이크', '브릴스 Lua'],
     icon: Bot,
   },
   {
@@ -76,7 +78,7 @@ const ROBOTICS_PILLARS: [PillarCardMeta, PillarCardMeta, PillarCardMeta] = [
 
 export default function RoboticsWorkspacePage() {
   const [activePillar, setActivePillar] = useState<PillarId>('lab');
-  const [labTab, setLabTab] = useState<LabSubTab>('handshake');
+  const [labTab, setLabTab] = useState<LabSubTab>('mission-lab');
   const [refTab, setRefTab] = useState<RefSubTab>('concepts');
   const [fieldTab, setFieldTab] = useState<FieldSubTab>('teaching');
 
@@ -88,7 +90,11 @@ export default function RoboticsWorkspacePage() {
     if (!hash) return;
 
     let targetId = '';
-    if (hash === 'handshake' || hash === 'io') {
+    if (hash === 'mission-lab' || hash === 'mission') {
+      setActivePillar('lab');
+      setLabTab('mission-lab');
+      targetId = 'mission-lab';
+    } else if (hash === 'handshake' || hash === 'io') {
       setActivePillar('lab');
       setLabTab('handshake');
       targetId = 'handshake';
@@ -155,6 +161,7 @@ export default function RoboticsWorkspacePage() {
           <SubTabBar
             activePillar="lab"
             tabs={[
+              { id: 'mission-lab', label: '2D 로봇팔·AMR 미션 랩', icon: Compass },
               { id: 'handshake', label: 'PLC↔로봇 I/O 핸드셰이크', icon: Activity },
               { id: 'lua', label: '브릴스 Lua 스크립트', icon: FileCode2 },
             ]}
@@ -201,6 +208,7 @@ export default function RoboticsWorkspacePage() {
 
         {/* Active Content View */}
         <main className="pb-12">
+          {activePillar === 'lab' && labTab === 'mission-lab' && <RoboticsMissionLab />}
           {activePillar === 'lab' && labTab === 'handshake' && <RoboticsHandshakeTab />}
           {activePillar === 'lab' && labTab === 'lua' && <RoboticsLuaTab />}
 
