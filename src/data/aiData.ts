@@ -137,6 +137,22 @@ export const CUSTOM_TOOLS_ARCHIVE: CustomToolProject[] = [
     hrefLabel: 'PLC 랩에서 직접 실행하기',
   },
   {
+    id: 'robotics-2d-mission-lab',
+    badge: 'LIVE ENGINEERING TOOL',
+    status: '운영 중 · v1.0',
+    title: '2D 협동로봇팔 · AMR Nav2 인터랙티브 미션 랩',
+    summary:
+      '브릴스 협동로봇팔의 실시간 2-DOF 역기구학(moveJ 곡선 vs moveL 직선, 특이점·충돌·EMG 경고)과 자율이동로봇(AMR)의 360° 레이캐스팅 LiDAR·금지구역 우회·저전압 충전 독 접안을 순차 미션으로 검증하고 Lua/ROS 2 코드를 자동 생성하는 웹 시뮬레이터.',
+    stack: ['2-DOF IK (Law of Cosines)', '360° Raycast LiDAR', 'BRILS Lua Auto-Gen', 'ROS 2 Nav2 / Rosbag2'],
+    features: [
+      '협동로봇팔 2종 실전 미션(기본 Pick & Place · 장애물 우회) & 실시간 Lua 누적·복사',
+      'AMR 2종 실전 미션(2D Pose 정합 · *.map 금지구역 우회 & 18% 저전압 독 접안)',
+      '현장 로봇 단위(deg↔rad · mm↔m) & 오른손 법칙(RGB=XYZ)·쿼터니언 체크기 모달 내장',
+    ],
+    href: '/robotics#mission-lab',
+    hrefLabel: '2D 미션 랩에서 직접 실행하기',
+  },
+  {
     id: 'brills-handshake-sim',
     badge: 'LIVE ENGINEERING TOOL',
     status: '운영 중 · v1.0',
@@ -148,8 +164,8 @@ export const CUSTOM_TOOLS_ARCHIVE: CustomToolProject[] = [
       'b접점(NC) 비상정지 차단 시 즉시 알람(DO_2) 및 모션 정지 인터록 검증',
       '::MAIN_LOOP:: 표준 Lua 코드 및 Rosbag2 4대 토픽 진단 치트시트 통합',
     ],
-    href: '/robotics',
-    hrefLabel: '로보틱스 랩에서 체험하기',
+    href: '/robotics#handshake',
+    hrefLabel: '핸드셰이크 시뮬레이터 열기',
   },
   {
     id: 'local-ai-rag-slot',

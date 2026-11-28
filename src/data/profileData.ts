@@ -153,9 +153,9 @@ export const SPEC_TILES: SpecTileItem[] = [
         href: '/plc',
       },
       {
-        title: '브릴스 Lua 핸드셰이크 & ROS 2 아키텍처 랩',
-        subtitle: 'I/O 매핑 · 특이점 회피 · Rosbag2 진단 정리',
-        href: '/robotics',
+        title: '2D 로봇팔·AMR 미션 랩 & 브릴스 Lua · ROS 2 아키텍처',
+        subtitle: '2-DOF IK · 360° LiDAR · I/O 핸드셰이크 · Rosbag2 진단 정리',
+        href: '/robotics#mission-lab',
       },
     ],
     sectorLinks: [
@@ -388,9 +388,9 @@ export const CAREER_TIMELINE: CareerTimelineItem[] = [
         href: '/plc',
       },
       {
-        title: '로보틱스 랩 — I/O 핸드셰이크 · Lua · ROS 2',
-        subtitle: '표준 매핑표 및 특이점 회피 코드 뷰어',
-        href: '/robotics',
+        title: '로보틱스 랩 — 2D 로봇팔·AMR 미션 랩 · 핸드셰이크 · Lua',
+        subtitle: '실시간 2-DOF IK · 360° LiDAR · 7신호 I/O 매핑 및 표준 코드 뷰어',
+        href: '/robotics#mission-lab',
       },
     ],
   },

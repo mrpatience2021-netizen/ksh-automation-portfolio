@@ -297,8 +297,13 @@ export default function HomePage() {
                       <Link
                         key={pill.label}
                         href={pill.href}
-                        className="px-3 py-1 rounded-full bg-surface-container-lowest/95 hover:bg-[#2563EB] hover:text-white text-[11px] text-on-surface shadow-xs flex items-center gap-1 font-semibold transition hover:scale-105"
+                        className={`px-3 py-1 rounded-full text-[11px] flex items-center gap-1 font-semibold transition hover:scale-105 ${
+                          pill.highlight
+                            ? 'bg-[#2563EB] hover:bg-blue-700 text-white shadow-sm'
+                            : 'bg-surface-container-lowest/95 hover:bg-[#2563EB] hover:text-white text-on-surface shadow-xs'
+                        }`}
                       >
+                        {pill.highlight && <Play className="w-3 h-3 fill-current" />}
                         <span>{pill.label}</span>
                         {pill.externalArrow && <ArrowUpRight className="w-3 h-3" />}
                       </Link>
